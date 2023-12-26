@@ -7,7 +7,9 @@ import { AlertifyService, MessageType, Posistion } from 'src/app/services/admin/
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-  constructor(private alertify:AlertifyService){}
+  constructor(private alertify:AlertifyService){
+
+  }
   ngOnInit(): void {
     this.alertify.message("merhaba",MessageType.Message,Posistion.TopLeft);
   }
