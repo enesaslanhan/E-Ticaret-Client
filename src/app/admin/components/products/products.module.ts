@@ -5,8 +5,9 @@ import { RouterModule } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { CreateComponent } from './create/create.component';
 import { ListComponent } from './list/list.component';
-
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     ProductsComponent,
@@ -18,7 +19,9 @@ import { ListComponent } from './list/list.component';
     RouterModule.forChild([
       {path:"",component:ProductsComponent}
     ]),
-    MatSidenavModule
+    MatSidenavModule,
+    MatFormFieldModule,MatInputModule,
+    MatButtonModule
 
   ]
 })
