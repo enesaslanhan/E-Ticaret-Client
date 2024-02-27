@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
@@ -18,6 +18,7 @@ export class CreateComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  @Output() createdProduct:EventEmitter<Product>=new EventEmitter();
   create(Name:HTMLInputElement,Stock:HTMLInputElement,Price:HTMLInputElement){
     this.showSpinner(SpinnerType.BallAtom)
     const create_product:Product=new Product();
@@ -30,6 +31,7 @@ export class CreateComponent extends BaseComponent implements OnInit {
     this.productService.createProduct(create_product,()=>{
       this.hideSpinner(SpinnerType.BallAtom)
       this.toastrService.success("ürün eklendi")
+      this.createdProduct.emit(create_product)
     },errorMessage=>{
       this.toastrService.error(errorMessage)
     });
