@@ -8,7 +8,7 @@ import { AlertifyService } from 'src/app/services/admin/alertify.service';
 import { ProductService } from 'src/app/services/common/product.service';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 
-
+declare var $:any
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -18,7 +18,7 @@ export class ListComponent extends BaseComponent implements OnInit {
   constructor(private prodcutService:ProductService,spinner:NgxSpinnerService,private alertifyService:AlertifyService,private toastrService:ToastrService){
     super(spinner)
   }
-  displayedColumns: string[] = ['name', 'stock', 'price', 'createdDate','updateDate'];
+  displayedColumns: string[] = ['name', 'stock', 'price', 'createdDate','updateDate','edit','delete'];
   dataSource  : MatTableDataSource<List_Product>=null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -36,5 +36,6 @@ export class ListComponent extends BaseComponent implements OnInit {
   async pageChanged(){
     await this.getProducts();
   }
+  
 
 }
