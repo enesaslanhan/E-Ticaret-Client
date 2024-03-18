@@ -11,7 +11,7 @@ export class HttpClientService {
 
   private url(requestParameter:Partial<RequestParameters>):string{
     return `${requestParameter.baseUrl ? requestParameter.baseUrl:this.baseurl}/${requestParameter.controller}
-    ${requestParameter.acrtion ? `/${requestParameter.acrtion}`:""}`;
+    ${requestParameter.actions ? `/${requestParameter.actions}`:""}`;
   }
 
   get<T>(requestParameter:Partial<RequestParameters>, id?:string):Observable<T>{
@@ -64,7 +64,7 @@ export class HttpClientService {
 export class RequestParameters{
   controller?:string;
   queryString?:string
-  acrtion?:string
+  actions?:string
   headrs?:HttpHeaders
   baseUrl?:string
   fullEndPoint?:string

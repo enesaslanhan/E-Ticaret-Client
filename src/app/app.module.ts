@@ -8,7 +8,6 @@ import { UiModule } from './ui/ui.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
-import { BaseComponent } from './base/base.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
